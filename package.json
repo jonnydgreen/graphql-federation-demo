@@ -1,0 +1,48 @@
+{
+  "name": "graphql-galaxy-demo",
+  "version": "1.0.0",
+  "description": "GraphQL Galaxy 2021: GraphQL Authentication and Authorization at scale demo",
+  "main": "main.js",
+  "scripts": {
+    "start:basic": "./basic.sh",
+    "start:loaders": "./loaders.sh",
+    "start:refs": "./refs.sh",
+    "start:collector": "docker run --name jaeger -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 -e COLLECTOR_OTLP_ENABLED=true -p 6831:6831/udp -p 6832:6832/udp -p 5778:5778 -p 16686:16686 -p 4317:4317 -p 4318:4318 -p 14250:14250 -p 14268:14268 -p 14269:14269 -p 9411:9411 jaegertracing/all-in-one:1.44",
+    "call": "node call.js",
+    "call:basic": "node call-basic.js",
+    "lint": "standard | snazzy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonnydgreen/graphql-galaxy-demo.git"
+  },
+  "author": "Jonny Green <hello@jonnydgreen.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonnydgreen/graphql-galaxy-demo/issues"
+  },
+  "homepage": "https://github.com/jonnydgreen/graphql-galaxy-demo#readme",
+  "dependencies": {
+    "fastify": "^4.25.2",
+    "mercurius": "^13.3.3",
+    "@mercuriusjs/gateway": "^2.2.0",
+    "@mercuriusjs/federation": "^2.0.0",
+    "undici": "^6.3.0",
+    "@opentelemetry/api": "^1.7.0",
+    "@opentelemetry/sdk-node": "^0.47.0",
+    "@opentelemetry/resources": "^1.20.0",
+    "@opentelemetry/semantic-conventions": "^1.20.0",
+    "@opentelemetry/instrumentation-http": "^0.47.0",
+    "@opentelemetry/instrumentation-fastify": "^0.32.6",
+    "opentelemetry-instrumentation-undici": "^0.2.2",
+    "@opentelemetry/exporter-trace-otlp-proto": "^0.47.0",
+    "@opentelemetry/instrumentation-graphql": "^0.36.1"
+  },
+  "devDependencies": {
+    "snazzy": "^9.0.0",
+    "standard": "^17.1.0",
+    "nodemon": "^3.0.2",
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.2.0"
+  }
+}
