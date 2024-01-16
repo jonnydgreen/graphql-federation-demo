@@ -42,7 +42,8 @@ createService(
     User: {
       avatar: (user, { size }) => `avatar-${size}.jpg`,
       friends: async (user) => Object.values(await getUsers()).filter((u) => u.id !== user.id),
-      fullName: (user) => user.name + ' Doe'
+      fullName: (user) => user.name + ' Doe',
+      // hello: () => 'there'
     }
   }
 )

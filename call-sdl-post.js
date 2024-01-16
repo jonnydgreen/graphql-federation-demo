@@ -5,17 +5,15 @@ const { performance } = require('node:perf_hooks')
 
 const query = `
   query {
-    me {
-      name
-    }
-    topPosts(count: 6) {
-      title
+    _service {
+      sdl
     }
   }
 `
+
 async function main() {
   const t0 = performance.now()
-  const response = await fetch('http://localhost:4000/graphql', {
+  const response = await fetch('http://localhost:4002/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -26,7 +24,9 @@ async function main() {
 
   console.error(`Call took ${t1 - t0} milliseconds.`)
   console.error(response.status, response.statusText)
-  console.log(JSON.stringify(await response.json(), null, 2))
+  const json = await response.json()
+  const sdl = json.data._service.sdl
+  console.log(sdl)
 }
 
 main()

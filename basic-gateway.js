@@ -13,6 +13,7 @@ gateway.register(mercuriusWithGateway, {
   graphiql: true,
   jit: 1,
   gateway: {
+    pollingInterval: 5000,
     services: [
       {
         name: 'user',

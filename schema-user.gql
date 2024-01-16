@@ -1,0 +1,19 @@
+type Query @extends {
+  me: User
+  you: User
+  hello: String
+}
+
+type User @key(fields: "id") {
+  id: ID!
+  name: String!
+  fullName: String
+  avatar(size: AvatarSize): String
+  friends: [User]
+}
+
+enum AvatarSize {
+  small
+  medium
+  large
+}

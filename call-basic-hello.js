@@ -7,6 +7,7 @@ const query = `
   query {
     me {
       name
+      hello
     }
     topPosts(count: 6) {
       title

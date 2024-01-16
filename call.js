@@ -31,8 +31,8 @@ async function main() {
   })
   const t1 = performance.now()
 
-  console.log(`Call took ${t1 - t0} milliseconds.`)
-  console.log(response.status, response.statusText)
+  console.error(`Call took ${t1 - t0} milliseconds.`)
+  console.error(response.status, response.statusText)
   console.log(JSON.stringify(await response.json(), null, 2))
 }
 
